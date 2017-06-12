@@ -9,7 +9,8 @@ router.get('/', (req, res) => {
   // res.json(req.query);
   res.render('hello', {
     name: 'bob',
-    dog: req.query.dog || "Fido"
+    dog: req.query.dog || "Fido",
+    title: "I love food"
   });
 });
 
