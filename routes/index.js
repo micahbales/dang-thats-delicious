@@ -50,4 +50,11 @@ router.post('/account/reset/:token',
   catchErrors(authController.update)
 );
 
+/*
+  API
+*/
+
+// route could also be formed as '/api/v1/search'
+router.get('/api/search', catchErrors(storeController.searchStores));
+
 module.exports = router;
