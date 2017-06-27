@@ -63,6 +63,8 @@ storeSchema.pre('save', async function(next) {
   // TODO make more resiliant so slugs are unique
 });
 
+// TODO add another storeSchema.pre that sanitizes inputs on certain fields
+
 storeSchema.statics.getTagsList = function() {
   return this.aggregate([
     { $unwind: '$tags'},
