@@ -4,7 +4,8 @@ import { $ } from './bling'
 // default settings for map
 const mapOptions = {
   center: { lat: 43.2, lng: -79.8 },
-  zoom: 10
+  zoom: 10,
+  maxZoom: 16
 };
 
 function loadPlaces(map, lat=43.2, lng=-79.8) {
