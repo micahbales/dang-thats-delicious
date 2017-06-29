@@ -52,7 +52,7 @@ router.post('/account/reset/:token',
 
 router.get('/map', storeController.mapPage);
 
-router.get('/hearts', catchErrors(storeController.hearts));
+router.get('/hearts', authController.isLoggedIn, catchErrors(storeController.hearts));
 
 /*
   API

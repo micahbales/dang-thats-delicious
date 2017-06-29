@@ -153,9 +153,10 @@ exports.heartStore = async (req, res) => {
 };
 
 exports.hearts = async (req, res) => {
-  const stores = await Store.find();
-  const heartedStores = stores.filter((store) => {
-    return req.user.hearts.toString().includes(store._id.toString()) ? store : null
+  const stores = await Store.find({
+    // return any store whose _id is found `$in` req.user.hearts
+    _id : { $in: req.user.hearts }
   });
-  res.render('hearts', { title: 'My Hearts', heartedStores });
+
+  res.render('stores', { title: 'My Hearts', stores });
 };
