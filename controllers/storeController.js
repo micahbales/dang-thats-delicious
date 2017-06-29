@@ -85,7 +85,9 @@ exports.updateStore = async (req, res) => {
 };
 
 exports.getStoreBySlug = async (req, res, next) => {
-  const store = await Store.findOne({ slug: req.params.slug }).populate('author');
+  // mongoose's `.populate` method applies foreign keys to the record
+  // (`reviews` is virtual, so it doesn't normally show up unless explicitly called)
+  const store = await Store.findOne({ slug: req.params.slug }).populate('author reviews');
   if (!store) return next();
   res.render('store', { store, title: store.name });
 };
